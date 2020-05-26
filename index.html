@@ -295,9 +295,8 @@ function gameStart() {
     }
   });
   var aTags = document.getElementsByTagName('a');
-
   for (var i = 0; i < aTags.length; i++) {
-    aTags[i].addEventListener("click touchend", function (e) {
+    aTags[i].addEventListener("touchend", function (e) {
       if (e.srcElement === undefined) {
         window.location = e.originalTarget.attributes.href.value;
       } else {
