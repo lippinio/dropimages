@@ -294,12 +294,17 @@ function gameStart() {
       player.x = e.touches[0].pageX - player.width / 2;
     }
   });
-  document.getElementsByTagName("a").addEventListener("click touchend", function (e) {
-    if (e.srcElement === undefined) {
-      window.location = e.originalTarget.attributes.href.value;
-    } else {
-      window.location = e.srcElement.attributes.href.textContent;
-    }
-  });
+  var aTags = document.getElementsByTagName('a');
+
+  for (var i = 0; i < aTags.length; i++) {
+    aTags[i].addEventListener("click touchend", function (e) {
+      if (e.srcElement === undefined) {
+        window.location = e.originalTarget.attributes.href.value;
+      } else {
+        window.location = e.srcElement.attributes.href.textContent;
+      }
+    });
+  }
+
   gameLoop();
 }</script></div></div></div></div></body></html>
