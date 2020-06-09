@@ -194,7 +194,7 @@ function gameStart() {
   const drawHearts = function (lives) {
     for (var i = 1; i <= lives; i++) {
       let x = 32 * i * PIXEL_RATIO;
-      gameContext.drawImage(heart, x, 45);
+      gameContext.drawImage(heart, x, 45, 28, 24);
     }
   };
 
