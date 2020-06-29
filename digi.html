@@ -104,14 +104,14 @@ function gameInit() {
   this.gravity = 1;
   this.color = color;
   this.radius = 15;
-  this.x = [x, x, x, x];
-  this.y = [y, y, y, y];
-  this.vx = [6, 3, -6, -3];
-  this.vy = [-6, -3, -6, -3];
+  this.x = Array(5).fill(x);
+  this.y = Array(5).fill(y);
+  this.vx = [6, 3, -6, -3, 0];
+  this.vy = [-6, -3, -6, -3, -7];
 }
 
 Particle.prototype.render = function () {
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < this.x.length; i++) {
     this.x[i] += this.vx[i];
     this.y[i] += this.vy[i];
     this.vy[i] += this.gravity;
@@ -287,7 +287,7 @@ function gameStart() {
         var block = fallingBlocks[i];
 
         if (block.y >= gameContainer.height - 80) {
-          particls.push(new Particle(fallingBlocks[i].x, fallingBlocks[i].y, block.color));
+          particls.push(new Particle(fallingBlocks[i].x + block.width / 2, fallingBlocks[i].y, block.color));
           fallingBlocks.splice(i, 1);
           lives -= 1;
         } else if (block.y + block.height >= player.y && block.y + block.height <= player.y + player.height && block.x >= player.x - block.width - player.height / 2 && block.x <= player.x + player.width + player.height / 2) {
