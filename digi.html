@@ -31,7 +31,6 @@ var images;
 var heart;
 var right_arrow;
 var left_arrow;
-var gameOverFrames = 15;
 
 var PIXEL_RATIO = function () {
   var ctx = document.getElementById("game-container").getContext("2d"),
@@ -221,6 +220,7 @@ function gameStart() {
     blockSpeed: 4
   };
   var lives = 3;
+  var gameOverFrames = 15;
 
   const drawHearts = function (lives) {
     for (var i = 1; i <= lives; i++) {
