@@ -2,6 +2,7 @@
 document.getElementsByClassName("overlay-close-button")[0].addEventListener("click", function () {
   document.getElementsByClassName("game-overlay")[0].classList.remove("active-overlay");
   document.getElementsByTagName("html")[0].style.touchAction = "";
+  document.getElementById("game-over").style.display = "none";
   isGameOpen = false;
 });
 document.getElementById("game-starter").addEventListener("click", function () {
@@ -16,6 +17,13 @@ window.addEventListener("resize", function () {
   if (isGameOpen) {
     isGameOpen = false;
     gameInit();
+  }
+});
+window.addEventListener("keyup", function (e) {
+  debugger;
+
+  if (e.keyCode === 32 && !isGameOpen && document.getElementById("game-over").style.display !== "block") {
+    document.getElementById("game-starter").click();
   }
 });
 var isGameOpen = false;
