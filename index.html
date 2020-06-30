@@ -202,8 +202,8 @@ Player.prototype.render = function (isDigitec) {
       gameContext.fillStyle = "#000000";
     }
 
-    gameContext.drawImage(left_arrow, this.x - 150, this.y, 70, 50);
-    gameContext.drawImage(right_arrow, this.x + this.width + 80, this.y, 70, 50);
+    gameContext.drawImage(left_arrow, this.x - 150, this.y + this.height / 2 - 25, 70, 50);
+    gameContext.drawImage(right_arrow, this.x + this.width + 80, this.y + this.height / 2 - 25, 70, 50);
 
     if (this.x !== this.initialX && this.x !== this.initialX + 3 && this.x !== this.initialX - 3) {
       this.showArrows = false;
